@@ -91,7 +91,6 @@ function updateOrder() {
   })
   html += `<div>Order Total: $${myPizzaOrder.totalPrice}</div>`
   $(".order-total").html(html).show()
-  console.log("update order called...")
 }
 
 function resetUi() {
@@ -114,7 +113,7 @@ $(document).ready(function() {
     } else {
       $(".size-button").attr("disabled", true)
       $(this).attr("disabled", false)
-      size = $(this).attr("class").split(" ")[3].toUpperCase()
+      size = $(this).attr("class").split(" ")[4].toUpperCase()
       $(".warning").hide()
     }
   })
@@ -155,7 +154,6 @@ $(document).ready(function() {
       const newPizza = createPizza()
       if (newPizza === undefined) return $(".warning").show() // they forgot to select a size
       addToOrder(newPizza)
-      console.log("after updating order to",myPizzaOrder)
       updateOrder() // update UI to show the pizza has been added to the order
       return resetUi() // reset myPizza to blank state and refresh UI
     }

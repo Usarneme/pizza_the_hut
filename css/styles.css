@@ -1,11 +1,28 @@
+@font-face {
+  font-family: SpaceGrotek;
+  src: url("SpaceGrotesk-VariableFont_wght.ttf")
+}
+
 :root {
   box-sizing: border-box;
   font-size: 15px;
-  font-family: DIN, Helvetica, Arial, sans-serif;
 }
 
 * {
   font-size: 1.15rem;
+  font-family: SpaceGrotek, Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  padding-top: 1.5rem;
+}
+
+h2 {
+  border-bottom: 4px solid red;
+}
+
+h3 {
+  border-bottom: 3px solid coral;
 }
 
 .main {
@@ -15,18 +32,24 @@
   padding: 0;
   min-height: 100vh;
   background-position: center top 181px;
+  color: #eee;
+  text-shadow: 1px 1px black;
 }
 
 .header {
-  color: #eee;
+  color: #ccc;
 }
 
-h2 {
-  border-bottom: 4px solid red;
+.btn {
+  background: rgba(255,255,255,0.9);
 }
 
-h3 {
-  border-bottom: 3px solid coral;
+.alert {
+  text-shadow: none;
+}
+
+.card {
+  background: rgba(255,255,255,0.3);
 }
 
 .warning,
