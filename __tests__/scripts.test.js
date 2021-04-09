@@ -133,4 +133,13 @@ describe("🍕 Pizza The Hut", () => {
     expect(cost).toBeGreaterThan(10)
   })
 
+  test("adding a bunch of toppings increases the cost", () => {
+    const myPizza = new Pizza()
+    myPizza.addTopping("thalaSirenMilkSauce")
+    myPizza.addTopping("roastedPorg")
+    myPizza.addTopping("crispedInfernoWeed")
+    const cost = myPizza.calculateCost()
+    expect(cost).toBeGreaterThan(10)
+  })
+
 })
