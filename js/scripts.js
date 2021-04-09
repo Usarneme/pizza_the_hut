@@ -1,4 +1,4 @@
-export default function Pizza(toppings, size) {
-  this.toppings = toppings || {}
-  this.size = size || undefined
+export default function Pizza() {
+  this.toppings = {}
+  this.size = undefined
 }
