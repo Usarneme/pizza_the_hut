@@ -15,6 +15,7 @@ h3 {
   border-bottom: 3px solid coral;
 }
 
+.order-status,
 .premades {
   display: none;
 }

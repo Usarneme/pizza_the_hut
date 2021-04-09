@@ -3,6 +3,63 @@ import { PizzaOrder, Pizza } from "./PizzaOrder.js"
 let size
 const meats = [], veggies = [], sauces = []
 
+function placeOrder() {
+  // call Pizza here... TODO
+}
+
+function decamelize(camelCaseString){
+	return camelCaseString
+        .replace(/([a-z\d])([A-Z])/g, '$1' + " " + '$2')
+        .replace(/([A-Z]+)([A-Z][a-z\d]+)/g, '$1' + " " + '$2')
+        .toLowerCase();
+}
+
+function updateOrderStatus() {
+  console.log("updating order status...",size,meats,veggies,sauces)
+  let html = `<div><h4>Current Pizza:<h4><div class="row">`
+  if (size) html += `<div class="col border m-2 p-3">One ${size.toLowerCase()} pizza.</div>`
+  if (meats.length > 0) {
+    html += `<div class="col border m-2 p-3"><h4>Meats:</h4>`
+    meats.forEach((meat, index) => {
+      html += ` ${decamelize(meat)}`
+      if (index < meats.length - 1) {
+        html += ", "
+      } else {
+        html += "."
+      }
+    })
+    html += "</div>"
+  }
+  if (veggies.length > 0) {
+    html += `<div class="col border m-2 p-3"><h4>Veggies:</h4>`
+    veggies.forEach((veggie, index) => {
+      html += ` ${decamelize(veggie)}`
+      if (index < veggies.length - 1) {
+        html += ", "
+      } else {
+        html += "."
+      }
+    })
+    html += "</div>"
+  }
+
+  if (sauces.length > 0) {
+    html += `<div class="col border m-2 p-3"><h4>Sauce:</h4>`
+    sauces.forEach((sauce, index) => {
+      html += ` ${decamelize(sauce)}`
+      if (index < sauces.length - 1) {
+        html += ", "
+      } else {
+        html += "."
+      }
+    })
+    html += "</div>"
+  }
+
+  html += "</div></div>"
+  $(".order-status").html(html).show()
+}
+
 $(document).ready(function() {
   console.log('Document Ready!')
 
@@ -42,6 +99,20 @@ $(document).ready(function() {
       const index = veggies.indexOf(this.id)
       veggies.splice(index,1)
     }
+  })
+
+  $(".sauce").click(function() {
+    if ($(this).attr("aria-pressed") === false || $(this).attr("aria-pressed") === "false") {
+      sauces.push(this.id)
+    } else {
+      const index = sauces.indexOf(this.id)
+      sauces.splice(index,1)
+    }
+  })
+
+  $(".btn").click(function() {
+    if (this.id === "add-pizza-button") return
+    updateOrderStatus()
   })
 
 })
