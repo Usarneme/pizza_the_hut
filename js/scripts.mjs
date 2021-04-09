@@ -1,6 +1,7 @@
 import { PizzaOrder, Pizza } from "./PizzaOrder.js"
 
 let size
+const meats = [], veggies = [], sauces = []
 
 $(document).ready(function() {
   console.log('Document Ready!')
@@ -22,6 +23,15 @@ $(document).ready(function() {
       // each button has a unique size class always the fourth class in the list of classes
       size = $(this).attr("class").split(" ")[3].toUpperCase()
       // console.log("size set",size)
+    }
+  })
+
+  $(".meat").click(function() {
+    if ($(this).attr("aria-pressed") === false || $(this).attr("aria-pressed") === "false") {
+      meats.push(this.id)
+    } else {
+      const index = meats.indexOf(this.id)
+      meats.splice(index,1) // remove the meat
     }
   })
 })
