@@ -5,14 +5,12 @@ let size
 $(document).ready(function() {
   console.log('Document Ready!')
 
-  $(".btn").click(function() {
-    console.log("Button pressed", $(this).attr("aria-pressed"))
-    // console.log($(this))
+  $(".size-button").click(function() {
     // if this button used to be active, the user has undone their size selection
     if ($(this).attr("aria-pressed") === "true") {
       $(".size-button").attr("disabled", false)
       size = undefined
-      console.log("size reset",size)
+      // console.log("size reset",size)
     } else {
       // when a size selection is made, disable all other size-buttons
       $(".size-button").attr("disabled", true)
@@ -23,7 +21,7 @@ $(document).ready(function() {
       // set the size of the pizza
       // each button has a unique size class always the fourth class in the list of classes
       size = $(this).attr("class").split(" ")[3].toUpperCase()
-      console.log("size set",size)
+      // console.log("size set",size)
     }
   })
 })
