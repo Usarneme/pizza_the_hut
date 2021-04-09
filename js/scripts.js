@@ -1,6 +1,7 @@
 export default function Pizza() {
   this.toppings = {
-    meats: []
+    meats: [],
+    veggies: []
   }
   this.size = undefined
 }

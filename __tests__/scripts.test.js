@@ -35,4 +35,14 @@ describe("🍕 Pizza The Hut", () => {
     expect(myPizza.toppings.meats).toEqual([])
   })
 
+  test("pizza.toppings object contains a 'veggies' property", () => {
+    const myPizza = new Pizza()
+    expect(myPizza.toppings).toHaveProperty("veggies")
+  })
+
+  test("pizza.toppings.veggies is an array", () => {
+    const myPizza = new Pizza()
+    expect(myPizza.toppings.veggies).toEqual([])
+  })
+
 })
