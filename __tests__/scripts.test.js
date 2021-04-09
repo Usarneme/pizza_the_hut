@@ -1,4 +1,4 @@
-import { Pizza, PizzaOrder } from "../js/scripts"
+import { Pizza, PizzaOrder } from "../js/PizzaOrder"
 
 describe("🍕 Pizza The Hut", () => {
   test("sanity check", () => {
