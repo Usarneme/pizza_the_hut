@@ -1,3 +1,3 @@
-export default function Pizza() {
-  // todo
+export default function Pizza(toppings) {
+  this.toppings = toppings || []
 }
