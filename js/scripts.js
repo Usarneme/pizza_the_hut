@@ -16,8 +16,11 @@ Pizza.prototype.calculateCost = function() {
   // todo
 }
 
-Pizza.prototype.addTopping = function() {
-  // todo
+Pizza.prototype.addTopping = function(topping) {
+  let toppingType
+  if (MEATS.includes(topping)) toppingType = "meats"
+  if (VEGGIES.includes(topping)) toppingType = "veggies"
+  if (toppingType) this.toppings[toppingType].push(topping)
 }
 
 Pizza.prototype.changeSize = function(size) {

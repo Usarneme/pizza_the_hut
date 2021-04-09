@@ -88,4 +88,16 @@ describe("🍕 Pizza The Hut", () => {
     expect(myPizza.size).toEqual("FAMILY")
   })
 
+  test("adding a meat topping includes it in the pizza.toppings.meats array", () => {
+    const myPizza = new Pizza()
+    myPizza.addTopping("roastedPorg")
+    expect(myPizza.toppings.meats).toContain("roastedPorg")
+  })
+
+  test("adding a veggie topping includes it in the pizza.toppings.veggies array", () => {
+    const myPizza = new Pizza()
+    myPizza.addTopping("crispedInfernoWeed")
+    expect(myPizza.toppings.veggies).toContain("crispedInfernoWeed")
+  })
+
 })
