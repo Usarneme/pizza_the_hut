@@ -20,8 +20,9 @@
 
     <div class="container menu">
 
-      <div class="container premades">
-        <h2>Premades</h2>
+      <div class="container card m-2 p-2 premades">
+        <h2>Our Favorites</h2>
+        <p>Please select one or more of our favorite combination pizzas</p>
         <div class="container row">
           <div class="col">One</div>
           <div class="col">Two</div>
@@ -29,18 +30,37 @@
         </div>
       </div>
 
-      <div class="container custom-pizzas">
-        <h2>Make Your Own</h2>
-        <div class="container sizes">
-          <div class="">
-            <h3>Sizes</h3>
+      <div class="container card m-2 p-2 custom-pizzas">
+        <h2>Custom Pizzas</h2>
+        <div class="container m-2 p-2 sizes">
+          <div class="col">
+            <h3>Size</h3>
+            <p>Please select a size for your first pizza</p>
           </div>
-          <div class="container toppings">
-            <div class="row">
+          <div class="col">
+            <button class="btn btn-outline-danger">Small</button>
+            <button class="btn btn-outline-danger">Medium</button>
+            <button class="btn btn-outline-danger">Large</button>
+            <button class="btn btn-outline-danger">Family</button>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="container m-2 p-2 toppings">
+          <div class="">
+            <div class="col">
               <h3>Toppings</h3>
-              <div class="col meats">Meats</div>
-              <div class="col veggies">Veggies</div>
-              <div class="col sauces">Sauces</div>
+              <p>Please select one or more of our delicious toppings</p>
+            </div>
+            <div class="col meats">
+              <h4>Meats</h4>
+            </div>
+            <div class="col veggies">
+              <h4>Veggies</h4>
+            </div>
+            <div class="col sauces">
+              <h4>Sauces</h4>
             </div>
           </div>
         </div>
