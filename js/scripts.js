@@ -16,7 +16,10 @@ export default function Pizza() {
 
 Pizza.prototype.calculateCost = function() {
   let cost = 10
-  // do stuff
+  cost += this.toppings.meats.length * 4
+  cost += this.toppings.veggies.length * 3
+  cost += this.toppings.sauces.length * 2
+  console.log(cost)
   return cost
 }
 
