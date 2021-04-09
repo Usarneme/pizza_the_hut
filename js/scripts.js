@@ -6,3 +6,7 @@ export default function Pizza() {
   }
   this.size = undefined
 }
+
+Pizza.prototype.calculateCost = function() {
+  // todo
+}

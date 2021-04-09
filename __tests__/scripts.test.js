@@ -55,4 +55,9 @@ describe("🍕 Pizza The Hut", () => {
     expect(myPizza.toppings.sauces).toEqual([])
   })
 
+  test("pizza has a prototype method calculateCost", () => {
+    const myPizza = new Pizza()
+    expect(myPizza).toHaveProperty("calculateCost")
+  })
+
 })
