@@ -7,12 +7,16 @@ const SAUCES = ["marinara","thalaSirenMilkSauce"]
 
 export function PizzaOrder() {
   this.pizzas = []
+  this.totalPrice = 0
 }
 
 PizzaOrder.prototype.addPizza = function(pizza) {
   this.pizzas.push(pizza)
 }
 
+PizzaOrder.prototype.addCost = function(cost) {
+  this.totalPrice += cost
+}
 export function Pizza() {
   this.toppings = {
     meats: [],

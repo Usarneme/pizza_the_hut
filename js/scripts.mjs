@@ -1,12 +1,6 @@
 import { PizzaOrder, Pizza } from "./PizzaOrder.js"
 
-let size
-const meats = [], veggies = [], sauces = []
-
-function placeOrder() {
-  // call Pizza here... TODO
-}
-
+// Helper Funcs
 function decamelize(camelCaseString){
 	return camelCaseString
         .replace(/([a-z\d])([A-Z])/g, '$1' + " " + '$2')
@@ -14,8 +8,31 @@ function decamelize(camelCaseString){
         .toLowerCase();
 }
 
-function updateOrderStatus() {
-  console.log("updating order status...",size,meats,veggies,sauces)
+let size, meats = [], veggies = [], sauces = []
+let myPizzaOrder = new PizzaOrder()
+
+function createPizza() {
+  if (!size) return
+  const myPizza = new Pizza()
+  if (meats.length > 0) meats.forEach(topping => {
+    myPizza.addTopping(topping)
+  })
+  if (veggies.length > 0) meats.forEach(topping => {
+    myPizza.addTopping(topping)
+  })
+  if (sauces.length > 0) meats.forEach(topping => {
+    myPizza.addTopping(topping)
+  })
+  myPizza.changeSize(size)
+  return myPizza
+}
+
+function addToOrder(myPizza) {
+  myPizzaOrder.addPizza(myPizza)
+  myPizzaOrder.addCost(myPizza.calculateCost())
+}
+
+function updateCurrentPizza() {
   let html = `<div><h4>Current Pizza:<h4><div class="row">`
   if (size) html += `<div class="col border m-2 p-3">One ${size.toLowerCase()} pizza.</div>`
   if (meats.length > 0) {
@@ -57,29 +74,34 @@ function updateOrderStatus() {
   }
 
   html += "</div></div>"
-  $(".order-status").html(html).show()
+  $(".current-pizza").html(html)
+  $(".order-status").show()
+}
+
+function updateOrder() {
+  // TODO
+  console.log("update order called...")
+}
+
+function resetUi() {
+  size = undefined
+  meats = []
+  veggies = []
+  sauces = []
+  $(".btn").attr("aria-pressed", false)
+  $(".btn").attr("disabled", false)
+  $(".current-pizza").html("").hide()
 }
 
 $(document).ready(function() {
-  console.log('Document Ready!')
-
   $(".size-button").click(function() {
-    // if this button used to be active, the user has undone their size selection
     if ($(this).attr("aria-pressed") === "true") {
       $(".size-button").attr("disabled", false)
       size = undefined
-      // console.log("size reset",size)
     } else {
-      // when a size selection is made, disable all other size-buttons
       $(".size-button").attr("disabled", true)
-      // re-enable the button for the size that was selected
-      // allowing user to undo selection by clicking again
-      // while limiting user to selecting only a single size
       $(this).attr("disabled", false)
-      // set the size of the pizza
-      // each button has a unique size class always the fourth class in the list of classes
       size = $(this).attr("class").split(" ")[3].toUpperCase()
-      // console.log("size set",size)
     }
   })
 
@@ -111,8 +133,14 @@ $(document).ready(function() {
   })
 
   $(".btn").click(function() {
-    if (this.id === "add-pizza-button") return
-    updateOrderStatus()
+    if (this.id === "add-pizza-button") {
+      const newPizza = createPizza()
+      addToOrder(newPizza)
+      console.log("after updating order to",myPizzaOrder)
+      updateOrder() // update UI to show the pizza has been added to the order
+      return resetUi() // reset myPizza to blank state and refresh UI
+    }
+    updateCurrentPizza()
   })
 
 })
