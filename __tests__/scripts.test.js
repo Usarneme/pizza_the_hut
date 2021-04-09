@@ -119,4 +119,18 @@ describe("🍕 Pizza The Hut", () => {
     expect(cost).toBeGreaterThan(10)
   })
 
+  test("cost increases when you add a veggie", () => {
+    const myPizza = new Pizza()
+    myPizza.addTopping("crispedInfernoWeed")
+    const cost = myPizza.calculateCost()
+    expect(cost).toBeGreaterThan(10)
+  })
+
+  test("cost increases when you add a sauce", () => {
+    const myPizza = new Pizza()
+    myPizza.addTopping("thalaSirenMilkSauce")
+    const cost = myPizza.calculateCost()
+    expect(cost).toBeGreaterThan(10)
+  })
+
 })
