@@ -31,7 +31,17 @@ $(document).ready(function() {
       meats.push(this.id)
     } else {
       const index = meats.indexOf(this.id)
-      meats.splice(index,1) // remove the meat
+      meats.splice(index,1)
     }
   })
+
+  $(".veggie").click(function() {
+    if ($(this).attr("aria-pressed") === false || $(this).attr("aria-pressed") === "false") {
+      veggies.push(this.id)
+    } else {
+      const index = veggies.indexOf(this.id)
+      veggies.splice(index,1)
+    }
+  })
+
 })
