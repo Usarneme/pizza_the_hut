@@ -8,9 +8,17 @@
   font-size: 15px;
 }
 
-* {
-  font-size: 1.15rem;
+*, button.btn,h3,h4,h5, div {
+  font-size: 1.65rem;
   font-family: SpaceGrotek, Helvetica, Arial, sans-serif;
+}
+
+button.btn.btn-lg {
+  display: block;
+  width: 100%;
+  margin: 8px;
+  margin-right: 5px;
+  background: rgba(255,255,255,0.9);
 }
 
 h1 {
@@ -40,8 +48,9 @@ h3 {
   color: #ccc;
 }
 
-.btn {
-  background: rgba(255,255,255,0.9);
+.order {
+  margin: 0 auto;
+  padding: 10px;
 }
 
 .alert {
@@ -57,4 +66,20 @@ h3 {
 .order-status,
 .premades {
   display: none;
+}
+
+@media all and (min-width: 900px) {
+  *, button.btn,h3,h4,h5, div {
+    font-size: 1.35rem;
+  }
+  button.btn.btn-lg {
+    display: inline-block;
+    width: unset;
+  }
+}
+
+@media all and (min-width: 1400px) {
+  *, button.btn,h3,h4,h5, div {
+    font-size: 1.1rem;
+  }
 }
