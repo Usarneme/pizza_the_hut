@@ -12,33 +12,18 @@
 </head>
 <body>
   <section class="container-fluid main">
-    <div class="container header">
+    <div class="container-fluid pl-5 pr-5 header">
       <h1>Welcome to Pizza The Hut!</h1>
       <p>Pizzas from a long time ago in a galaxy far, far away.</p>
     </div>
-
     <div class="container">
-      <div class="card m-2 p-2 order-status">
-        <div class="p-5 order-total"></div>
+      <div class="container card m-2 p-2 order-status">
+        <div class="p-2 order-total"></div>
         <div class="p-2 current-pizza"></div>
       </div>
-    </div>
-
-    <div class="container menu">
-
-      <div class="container card m-2 p-2 premades">
-        <h2>Our Favorites</h2>
-        <p>Please select one or more of our favorite combination pizzas</p>
-        <div class="container row">
-          <div class="col">One</div>
-          <div class="col">Two</div>
-          <div class="col">Three</div>
-        </div>
-      </div>
-
-      <div class="container card m-2 p-2 custom-pizzas">
+      <div class="container card m-2 p-2 menu">
         <h2>Custom Pizzas</h2>
-        <div class="container m-2 p-2 sizes">
+        <div class="container p-2 sizes">
           <div class="col">
             <h3>Size</h3>
             <p>Please first select a size for your pizza</p>
@@ -50,16 +35,14 @@
             <button data-toggle="button" aria-pressed="false" class="btn btn-outline-info size-button family">Family</button>
           </div>
         </div>
-
         <hr />
-
-        <div class="container m-2 p-2 toppings">
+        <div class="container p-2 toppings">
           <div class="">
             <div class="col">
               <h3>Toppings</h3>
               <p>Please select one or more of our delicious toppings</p>
             </div>
-            <div class="container m-2 p-2 col meats">
+            <div class="container p-2 col meats">
               <h4>Meats</h4>
               <div class="row">
                 <div class="col">
@@ -72,10 +55,8 @@
                 </div>
               </div>
             </div>
-
             <hr />
-
-            <div class="container m-2 p-2 col veggies">
+            <div class="container p-2 col veggies">
               <h4>Veggies</h4>
               <div class="row">
                 <div class="col">
@@ -88,10 +69,8 @@
                 </div>
               </div>
             </div>
-
             <hr />
-
-            <div class="container m-2 p-2 col sauces">
+            <div class="container p-2 col sauces">
               <h4>Sauces</h4>
               <div class="row">
                 <div class="col">
@@ -102,12 +81,9 @@
             </div>
           </div>
         </div>
-
         <hr />
-
         <button class="btn btn-lg btn-block btn-outline-primary" id="add-pizza-button">Add Pizza To Order!</button>
       </div>
-
     </div>
   </section>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>

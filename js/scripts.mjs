@@ -12,7 +12,7 @@ let size, meats = [], veggies = [], sauces = []
 let myPizzaOrder = new PizzaOrder()
 
 function createPizza() {
-  if (!size) return
+  if (!size) return undefined
   const myPizza = new Pizza()
   if (meats.length > 0) meats.forEach(topping => {
     myPizza.addTopping(topping)
@@ -33,10 +33,10 @@ function addToOrder(myPizza) {
 }
 
 function updateCurrentPizza() {
-  let html = `<div><h4>Current Pizza:<h4><div class="row">`
-  if (size) html += `<div class="col m-2 p-3">One ${size.toLowerCase()} pizza.</div>`
+  let html = `<div><div class="row">`
+  if (size) html += `<div class="col"><h4>Pizza Size:</h4>${size.toLowerCase()}.</div>`
   if (meats.length > 0) {
-    html += `<div class="col m-2 p-3"><h4>Meats:</h4>`
+    html += `<div class="col"><h4>Meats:</h4>`
     meats.forEach((meat, index) => {
       html += ` ${decamelize(meat)}`
       if (index < meats.length - 1) {
@@ -48,7 +48,7 @@ function updateCurrentPizza() {
     html += "</div>"
   }
   if (veggies.length > 0) {
-    html += `<div class="col m-2 p-3"><h4>Veggies:</h4>`
+    html += `<div class="col"><h4>Veggies:</h4>`
     veggies.forEach((veggie, index) => {
       html += ` ${decamelize(veggie)}`
       if (index < veggies.length - 1) {
@@ -61,7 +61,7 @@ function updateCurrentPizza() {
   }
 
   if (sauces.length > 0) {
-    html += `<div class="col m-2 p-3"><h4>Sauce:</h4>`
+    html += `<div class="col"><h4>Sauce:</h4>`
     sauces.forEach((sauce, index) => {
       html += ` ${decamelize(sauce)}`
       if (index < sauces.length - 1) {
@@ -83,7 +83,6 @@ function updateOrder() {
   myPizzaOrder.pizzas.forEach(pizza => {
     html += `Size: ${pizza.size}. With:`
     Object.keys(pizza.toppings).forEach(toppingType => {
-      console.log('checking pizza toppings',toppingType)
       if (pizza.toppings[toppingType].length > 0) html += pizza.toppings[toppingType].join() + " "
     })
   })
@@ -100,7 +99,7 @@ function resetUi() {
   $(".btn").attr("aria-pressed", false)
   $(".btn").attr("disabled", false)
   $(".btn").removeClass("active")
-  $(".current-pizza").html("").hide()
+  $(".current-pizza").html("")
 }
 
 $(document).ready(function() {
@@ -145,6 +144,7 @@ $(document).ready(function() {
   $(".btn").click(function() {
     if (this.id === "add-pizza-button") {
       const newPizza = createPizza()
+      if (newPizza === undefined) return
       addToOrder(newPizza)
       console.log("after updating order to",myPizzaOrder)
       updateOrder() // update UI to show the pizza has been added to the order
