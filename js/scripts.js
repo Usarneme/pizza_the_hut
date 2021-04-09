@@ -10,3 +10,7 @@ export default function Pizza() {
 Pizza.prototype.calculateCost = function() {
   // todo
 }
+
+Pizza.prototype.addTopping = function() {
+  // todo
+}

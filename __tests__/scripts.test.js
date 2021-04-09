@@ -60,4 +60,8 @@ describe("🍕 Pizza The Hut", () => {
     expect(myPizza).toHaveProperty("calculateCost")
   })
 
+  test("pizza has a prototype method addTopping", () => {
+    const myPizza = new Pizza()
+    expect(myPizza).toHaveProperty("addTopping")
+  })
 })
