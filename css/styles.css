@@ -1,10 +1,24 @@
 :root {
   box-sizing: border-box;
   font-size: 15px;
+  font-family: DIN, Helvetica, Arial, sans-serif;
 }
 
 * {
   font-size: 1.15rem;
+}
+
+.main {
+  background-image: url(https://lumiere-a.akamaihd.net/v1/images/background-stars-desktop_00cbf8a9.jpeg?region=0%2C0%2C2048%2C1600);
+  background-size: 1600px auto;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-position: center top 181px;
+}
+
+.header {
+  color: #eee;
 }
 
 h2 {
@@ -15,6 +29,7 @@ h3 {
   border-bottom: 3px solid coral;
 }
 
+.warning,
 .order-total,
 .order-status,
 .premades {

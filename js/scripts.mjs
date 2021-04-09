@@ -79,14 +79,17 @@ function updateCurrentPizza() {
 }
 
 function updateOrder() {
-  let html = `<div><h4>Current Order:<h4><div class="row">`
-  myPizzaOrder.pizzas.forEach(pizza => {
-    html += `Size: ${pizza.size}. With:`
+  let html = `<div><h4>Current Order:<h4><div class="">`
+  myPizzaOrder.pizzas.forEach((pizza, pizzaIndex) => {
+    html += `<div>${pizzaIndex + 1}. ${pizza.size.toLowerCase()} - `
     Object.keys(pizza.toppings).forEach(toppingType => {
-      if (pizza.toppings[toppingType].length > 0) html += pizza.toppings[toppingType].join() + " "
+      if (pizza.toppings[toppingType].length > 0) {
+        pizza.toppings[toppingType].forEach(topping => html += decamelize(topping) + " ")
+      }
     })
+    html += "</div>"
   })
-  html += `. $${myPizzaOrder.totalPrice}.`
+  html += `<div>Order Total: $${myPizzaOrder.totalPrice}</div>`
   $(".order-total").html(html).show()
   console.log("update order called...")
 }
@@ -100,6 +103,7 @@ function resetUi() {
   $(".btn").attr("disabled", false)
   $(".btn").removeClass("active")
   $(".current-pizza").html("")
+  $(".warning").hide()
 }
 
 $(document).ready(function() {
@@ -111,6 +115,7 @@ $(document).ready(function() {
       $(".size-button").attr("disabled", true)
       $(this).attr("disabled", false)
       size = $(this).attr("class").split(" ")[3].toUpperCase()
+      $(".warning").hide()
     }
   })
 
@@ -141,10 +146,14 @@ $(document).ready(function() {
     }
   })
 
+  $("#close-warning").click(function() {
+    $(".warning").hide()
+  })
+
   $(".btn").click(function() {
     if (this.id === "add-pizza-button") {
       const newPizza = createPizza()
-      if (newPizza === undefined) return
+      if (newPizza === undefined) return $(".warning").show() // they forgot to select a size
       addToOrder(newPizza)
       console.log("after updating order to",myPizzaOrder)
       updateOrder() // update UI to show the pizza has been added to the order
