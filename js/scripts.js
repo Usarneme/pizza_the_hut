@@ -1,5 +1,8 @@
 const SIZES = ["SMALL","MEDIUM","LARGE","FAMILY"]
-
+const MEATS = ["coloClawFish","roastedPorg","deepFriedNunaLegs","paddyFrogSnack","banthaTartare","groatChop"]
+const VEGGIES = ["meiloorunFruit","floatingNabooFruit","crispedInfernoWeed","lalarenBloom","volchoSprig","spetzna"]
+const DRINKS = ["thalaSirenMilk"]
+const SIDES = ["cantoBightCakes","portionBread"]
 export default function Pizza() {
   this.toppings = {
     meats: [],

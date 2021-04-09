@@ -76,13 +76,13 @@ describe("🍕 Pizza The Hut", () => {
     expect(myPizza.size).toEqual("SMALL")
   })
 
-  test("changeSize method only accepts 'SMALL', 'MEDIUM', 'LARGE', and 'FAMILY' size params", () => {
+  test("changeSize() only accepts 'SMALL', 'MEDIUM', 'LARGE', and 'FAMILY' size params", () => {
     const myPizza = new Pizza()
     myPizza.changeSize("blah")
     expect(myPizza.size).toEqual(undefined)
   })
 
-  test("changeSize('FAMILY') method sets pizza.size property", () => {
+  test("changeSize('FAMILY') method sets pizza.size to LARGE", () => {
     const myPizza = new Pizza()
     myPizza.changeSize("FAMILY")
     expect(myPizza.size).toEqual("FAMILY")
