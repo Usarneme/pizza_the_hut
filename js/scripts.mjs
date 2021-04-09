@@ -17,10 +17,10 @@ function createPizza() {
   if (meats.length > 0) meats.forEach(topping => {
     myPizza.addTopping(topping)
   })
-  if (veggies.length > 0) meats.forEach(topping => {
+  if (veggies.length > 0) veggies.forEach(topping => {
     myPizza.addTopping(topping)
   })
-  if (sauces.length > 0) meats.forEach(topping => {
+  if (sauces.length > 0) sauces.forEach(topping => {
     myPizza.addTopping(topping)
   })
   myPizza.changeSize(size)
