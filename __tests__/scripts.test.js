@@ -15,7 +15,7 @@ describe("🍕 Pizza The Hut", () => {
     expect(myPizza).toHaveProperty("toppings")
   })
 
-  test("pizza object contains a toppings property which is an object", () => {
+  test("pizza contains a toppings property which is an object", () => {
     const myPizza = new Pizza()
     expect(typeof myPizza.toppings).toEqual("object")
   })
@@ -23,6 +23,11 @@ describe("🍕 Pizza The Hut", () => {
   test("pizza object contains a size property", () => {
     const myPizza = new Pizza()
     expect(myPizza).toHaveProperty("size")
+  })
+
+  test("pizza.toppings object contains a 'meats' property", () => {
+    const myPizza = new Pizza()
+    expect(myPizza.toppings).toHaveProperty("meats")
   })
 
 })
