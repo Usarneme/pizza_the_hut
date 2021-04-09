@@ -100,4 +100,10 @@ describe("🍕 Pizza The Hut", () => {
     expect(myPizza.toppings.veggies).toContain("crispedInfernoWeed")
   })
 
+  test("adding a sauce topping includes it in the pizza.toppings.sauces array", () => {
+    const myPizza = new Pizza()
+    myPizza.addTopping("thalaSirenMilkSauce")
+    expect(myPizza.toppings.sauces).toContain("thalaSirenMilkSauce")
+  })
+
 })
