@@ -14,3 +14,7 @@ Pizza.prototype.calculateCost = function() {
 Pizza.prototype.addTopping = function() {
   // todo
 }
+
+Pizza.prototype.changeSize = function(size) {
+  this.size = size
+}

@@ -64,4 +64,16 @@ describe("🍕 Pizza The Hut", () => {
     const myPizza = new Pizza()
     expect(myPizza).toHaveProperty("addTopping")
   })
+
+  test("pizza has a prototype method changeSize", () => {
+    const myPizza = new Pizza()
+    expect(myPizza).toHaveProperty("changeSize")
+  })
+
+  test("changeSize method sets pizza.size property", () => {
+    const myPizza = new Pizza()
+    myPizza.changeSize("SMALL")
+    expect(myPizza.size).toEqual("SMALL")
+  })
+
 })
