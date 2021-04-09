@@ -1,3 +1,5 @@
+const SIZES = ["SMALL","MEDIUM","LARGE","FAMILY"]
+
 export default function Pizza() {
   this.toppings = {
     meats: [],
@@ -16,5 +18,5 @@ Pizza.prototype.addTopping = function() {
 }
 
 Pizza.prototype.changeSize = function(size) {
-  this.size = size
+  if (SIZES.includes(size)) return this.size = size
 }
