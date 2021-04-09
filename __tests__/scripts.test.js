@@ -106,4 +106,9 @@ describe("🍕 Pizza The Hut", () => {
     expect(myPizza.toppings.sauces).toContain("thalaSirenMilkSauce")
   })
 
+  test("calculateCost function returns a number/int", () => {
+    const myPizza = new Pizza()
+    const cost = myPizza.calculateCost()
+    expect(typeof cost).toBe("number")
+  })
 })

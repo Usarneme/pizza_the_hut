@@ -15,19 +15,17 @@ export default function Pizza() {
 }
 
 Pizza.prototype.calculateCost = function() {
-  // todo
+  let cost = 10
+  // do stuff
+  return cost
 }
 
 Pizza.prototype.addTopping = function(topping) {
   let toppingType
   if (MEATS.includes(topping)) toppingType = "meats"
-  console.log(toppingType)
   if (VEGGIES.includes(topping)) toppingType = "veggies"
-  console.log(toppingType)
   if (SAUCES.includes(topping)) toppingType = "sauces"
-  console.log(toppingType)
   if (toppingType) this.toppings[toppingType].push(topping)
-  console.log(this.toppings.sauces)
 }
 
 Pizza.prototype.changeSize = function(size) {
