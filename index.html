@@ -7,13 +7,14 @@
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
     crossorigin="anonymous">
   <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <link rel="icon" href="favicon.ico">
   <title>Pizza The Hut</title>
 </head>
 <body>
   <section class="container-fluid main">
     <div class="container header">
       <h1>Welcome to Pizza The Hut!</h1>
-      <p>Pizzas from long ago in a galaxy far, far away.</p>
+      <p>Pizzas from a long time ago in a galaxy far, far away.</p>
     </div>
 
     <div class="jumbotron order-status">Order Status:</div>
@@ -38,10 +39,10 @@
             <p>Please select a size for your first pizza</p>
           </div>
           <div class="col">
-            <button class="btn btn-outline-danger">Small</button>
-            <button class="btn btn-outline-danger">Medium</button>
-            <button class="btn btn-outline-danger">Large</button>
-            <button class="btn btn-outline-danger">Family</button>
+            <button aria-pressed="false" class="btn btn-outline-danger">Small</button>
+            <button aria-pressed="false" class="btn btn-outline-danger">Medium</button>
+            <button aria-pressed="false" class="btn btn-outline-danger">Large</button>
+            <button aria-pressed="false" class="btn btn-outline-danger">Family</button>
           </div>
         </div>
 
@@ -53,18 +54,33 @@
               <h3>Toppings</h3>
               <p>Please select one or more of our delicious toppings</p>
             </div>
-            <div class="col meats">
+            <div class="container m-2 p-2 col meats">
               <h4>Meats</h4>
+              <div class="row ml-3">
+                <button aria-pressed="false" class="btn btn-outline-warning">One</button>
+              </div>
             </div>
-            <div class="col veggies">
+            <div class="container m-2 p-2 col veggies">
               <h4>Veggies</h4>
+              <div class="row ml-3">
+                <button aria-pressed="false" class="btn btn-outline-info">One</button>
+              </div>
             </div>
-            <div class="col sauces">
+            <div class="container m-2 p-2 col sauces">
               <h4>Sauces</h4>
+              <div class="row ml-3">
+                <button aria-pressed="false" class="btn btn-outline-primary">One</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+<!--
+const MEATS = ["coloClawFish","roastedPorg","deepFriedNunaLegs","paddyFrogSnack","banthaTartare","groatChop"]
+const VEGGIES = ["meiloorunFruit","floatingNabooFruit","crispedInfernoWeed","lalarenBloom","volchoSprig","spetzna"]
+const SAUCES = ["marinara","thalaSirenMilkSauce"] -->
+
 
     </div>
   </section>
@@ -79,6 +95,6 @@
     integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf"
     crossorigin="anonymous">
   </script>
-  <script src="js/scripts.js" type="module"></script>
+  <script src="js/scripts.mjs" type="module"></script>
 </body>
 </html>
