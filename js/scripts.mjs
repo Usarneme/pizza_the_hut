@@ -34,9 +34,9 @@ function addToOrder(myPizza) {
 
 function updateCurrentPizza() {
   let html = `<div><h4>Current Pizza:<h4><div class="row">`
-  if (size) html += `<div class="col border m-2 p-3">One ${size.toLowerCase()} pizza.</div>`
+  if (size) html += `<div class="col m-2 p-3">One ${size.toLowerCase()} pizza.</div>`
   if (meats.length > 0) {
-    html += `<div class="col border m-2 p-3"><h4>Meats:</h4>`
+    html += `<div class="col m-2 p-3"><h4>Meats:</h4>`
     meats.forEach((meat, index) => {
       html += ` ${decamelize(meat)}`
       if (index < meats.length - 1) {
@@ -48,7 +48,7 @@ function updateCurrentPizza() {
     html += "</div>"
   }
   if (veggies.length > 0) {
-    html += `<div class="col border m-2 p-3"><h4>Veggies:</h4>`
+    html += `<div class="col m-2 p-3"><h4>Veggies:</h4>`
     veggies.forEach((veggie, index) => {
       html += ` ${decamelize(veggie)}`
       if (index < veggies.length - 1) {
@@ -61,7 +61,7 @@ function updateCurrentPizza() {
   }
 
   if (sauces.length > 0) {
-    html += `<div class="col border m-2 p-3"><h4>Sauce:</h4>`
+    html += `<div class="col m-2 p-3"><h4>Sauce:</h4>`
     sauces.forEach((sauce, index) => {
       html += ` ${decamelize(sauce)}`
       if (index < sauces.length - 1) {
@@ -79,7 +79,16 @@ function updateCurrentPizza() {
 }
 
 function updateOrder() {
-  // TODO
+  let html = `<div><h4>Current Order:<h4><div class="row">`
+  myPizzaOrder.pizzas.forEach(pizza => {
+    html += `Size: ${pizza.size}. With:`
+    Object.keys(pizza.toppings).forEach(toppingType => {
+      console.log('checking pizza toppings',toppingType)
+      if (pizza.toppings[toppingType].length > 0) html += pizza.toppings[toppingType].join() + " "
+    })
+  })
+  html += `. $${myPizzaOrder.totalPrice}.`
+  $(".order-total").html(html).show()
   console.log("update order called...")
 }
 
@@ -90,6 +99,7 @@ function resetUi() {
   sauces = []
   $(".btn").attr("aria-pressed", false)
   $(".btn").attr("disabled", false)
+  $(".btn").removeClass("active")
   $(".current-pizza").html("").hide()
 }
 
