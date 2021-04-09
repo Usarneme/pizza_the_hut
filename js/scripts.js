@@ -5,7 +5,15 @@ const SAUCES = ["marinara","thalaSirenMilkSauce"]
 // const DRINKS = ["thalaSirenMilk"]
 // const SIDES = ["cantoBightCakes","portionBread"]
 
-export default function Pizza() {
+export function PizzaOrder() {
+  this.pizzas = []
+}
+
+PizzaOrder.prototype.addPizza = function(pizza) {
+  this.pizzas.push(pizza)
+}
+
+export function Pizza() {
   this.toppings = {
     meats: [],
     veggies: [],
@@ -19,7 +27,6 @@ Pizza.prototype.calculateCost = function() {
   cost += this.toppings.meats.length * 4
   cost += this.toppings.veggies.length * 3
   cost += this.toppings.sauces.length * 2
-  console.log(cost)
   return cost
 }
 

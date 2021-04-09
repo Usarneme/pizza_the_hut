@@ -1,4 +1,4 @@
-import Pizza from "../js/scripts"
+import { Pizza, PizzaOrder } from "../js/scripts"
 
 describe("🍕 Pizza The Hut", () => {
   test("sanity check", () => {
@@ -140,6 +140,18 @@ describe("🍕 Pizza The Hut", () => {
     myPizza.addTopping("crispedInfernoWeed")
     const cost = myPizza.calculateCost()
     expect(cost).toBeGreaterThan(10)
+  })
+
+  test("you should be able to order more than one pizza (via PizzaOrder)", () => {
+    const myPizzaOrder = new PizzaOrder()
+    expect(myPizzaOrder).toBeInstanceOf(PizzaOrder)
+  })
+
+  test("you should be able to add a pizza to your pizza order", () => {
+    const myPizzaOrder = new PizzaOrder()
+    const myPizza = new Pizza()
+    myPizzaOrder.addPizza(myPizza)
+    expect(Array.isArray(myPizzaOrder.pizzas)).toBeTruthy()
   })
 
 })
